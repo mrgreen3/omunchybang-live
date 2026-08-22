@@ -1,0 +1,8 @@
+NAME="GreenMarchy"
+PRETTY_NAME="GreenMarchy Live"
+ID=greenmarchy
+ID_LIKE=arch
+BUILD_ID=rolling
+
+ANSI_COLOR="0;32"
+HOME_URL="https://github.com/mrgreen3/greenmarchy-live"
