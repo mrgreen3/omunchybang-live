@@ -69,6 +69,12 @@ for service in "${SERVICES[@]}"; do
   fi
 done
 
+# Chromium's gnome-libsecret password store needs a PAM-unlocked keyring,
+# which the live session's agreety login never provides (that PAM hook only
+# exists for sddm) — Chromium then prompts to create a new keyring password
+# on first run. Use the plaintext "basic" store instead for the live image.
+sed -i 's/--password-store=gnome-libsecret/--password-store=basic/' /etc/skel/.config/chromium-flags.conf
+
 # Add live user
 useradd -m -p "" -G "wheel" -s /bin/bash -g users live
 chown live /home/live
