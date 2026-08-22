@@ -26,7 +26,7 @@ chmod -c 0440 /etc/sudoers
 sed -i '/^Categories=/a Hidden=true' /usr/share/applications/gparted.desktop
 
 # Hostname (hardcoded for live ISO; users can change after installation)
-echo "greenmarchy" > /etc/hostname
+echo "omarchybang" > /etc/hostname
 
 # Vconsole
 echo "KEYMAP=us" > /etc/vconsole.conf

@@ -1,4 +1,4 @@
-" Basic Vim config for GreenMarchy
+" Basic Vim config for OmarchyBang
 " Added by MrGreen
 syntax on
 set number

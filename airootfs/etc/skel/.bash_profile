@@ -1,4 +1,4 @@
-# GreenMarchy login shell configuration
+# OmarchyBang login shell configuration
 # Starts the Omarchy Hyprland session via uwsm
 
 . $HOME/.bashrc
