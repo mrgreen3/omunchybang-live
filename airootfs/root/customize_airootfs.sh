@@ -88,12 +88,21 @@ systemctl set-default graphical.target
 # kernel-install duties from the linux package and skips the classic flat
 # copy to /boot/vmlinuz-linux our archiso preset expects. We don't boot via
 # Limine here (GRUB/syslinux, set up by the ISO build script itself, does
-# that) — Limine just needs to be installed to satisfy the dependency, not
-# actually used. So restore the plain kernel path ourselves: the raw kernel
-# binary is always a package file at /usr/lib/modules/<version>/vmlinuz
-# regardless of kernel-install scheme, then force our own preset
+# that), so restore the plain kernel path ourselves: the raw kernel binary
+# is always a package file at /usr/lib/modules/<version>/vmlinuz regardless
+# of kernel-install scheme, then force our own preset
 # (/etc/mkinitcpio.d/linux.preset, PRESETS=('archiso')), which is what the
 # ISO build script expects to find at /boot/initramfs-*.img.
 kernel_ver=$(/bin/ls -1 /usr/lib/modules | head -n1)
 install -Dm644 "/usr/lib/modules/${kernel_ver}/vmlinuz" /boot/vmlinuz-linux
+
+# Limine was only ever installed to satisfy omarchy's hard dependency; we
+# never boot with it. Strip it back out now that pacstrap has satisfied
+# that dependency: -Rdd skips the omarchy dependency check (we're not
+# removing omarchy itself) and ignores the reverse deps between these three
+# packages. Doing this before mkinitcpio means limine-mkinitcpio-hook's
+# ESP-sync hook can't fire, so it no longer errors on every build with
+# "FAT32 boot partition not found".
+pacman -Rdd --noconfirm limine-snapper-sync limine-mkinitcpio-hook limine
+
 mkinitcpio -p linux
