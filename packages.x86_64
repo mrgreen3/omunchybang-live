@@ -142,7 +142,7 @@ mpv-mpris
 nautilus
 nautilus-python
 networkmanager
-noto-fonts
+#noto-fonts
 noto-fonts-emoji
 nss-mdns
 neovim

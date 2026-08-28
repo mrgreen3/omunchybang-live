@@ -1,4 +1,4 @@
-# OmarchyBang login shell configuration
+# OmunchyBang login shell configuration
 # Starts the Omarchy Hyprland session via uwsm
 
 . $HOME/.bashrc

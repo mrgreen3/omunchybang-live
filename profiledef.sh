@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
-# OmarchyBang Live ISO
+# OmunchyBang Live ISO
 # Archiso scaffold from ArchBang, desktop stack from Omarchy (pkgs.omarchy.org)
 
-iso_name="omarchybang-beta"
-iso_label="OMARCHYBANG_BETA_$(date +%d%m%y)"
-iso_publisher="OmarchyBang <https://github.com/mrgreen3/omarchybang-live>"
-iso_application="OmarchyBang Live ISO (Beta)"
+iso_name="omunchybang-beta"
+iso_label="OMUNCHYBANG_BETA_$(date +%d%m%y)"
+iso_publisher="OmunchyBang <https://github.com/mrgreen3/omunchybang-live>"
+iso_application="OmunchyBang Live ISO (Beta)"
 # Version format: DDMMYY (day-month-year). Changes daily for testing/development builds.
 # Chronologically sortable for easy identification of ISO age.
 # For releases, replace with semantic versioning (e.g., "1.0.0") instead of $(date +%d%m%y)

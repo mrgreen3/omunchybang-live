@@ -1,4 +1,4 @@
-# OmarchyBang Live
+# OmunchyBang Live
 
 A live-bootable Hyprland/Omarchy desktop ISO: ArchBang's proven archiso boot
 scaffold (autologin live user, working live-session boot chain), running

@@ -1,8 +1,8 @@
-NAME="OmarchyBang"
-PRETTY_NAME="OmarchyBang Live"
-ID=omarchybang
+NAME="OmunchyBang"
+PRETTY_NAME="OmunchyBang Live"
+ID=omunchybang
 ID_LIKE=arch
 BUILD_ID=rolling
 
 ANSI_COLOR="0;32"
-HOME_URL="https://github.com/mrgreen3/omarchybang-live"
+HOME_URL="https://github.com/mrgreen3/omunchybang-live"
