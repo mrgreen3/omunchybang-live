@@ -111,4 +111,19 @@ install -Dm644 "/usr/lib/modules/${kernel_ver}/vmlinuz" /boot/vmlinuz-linux
 # "FAT32 boot partition not found".
 pacman -Rdd --noconfirm limine-snapper-sync limine-mkinitcpio-hook limine
 
+# omarchy's snapper setup and its "normalize snapper snapshot services"
+# migration (1781984677.sh) both hard-require limine-snapper-sync.service,
+# which we just removed above. Left as-is, the migration's needs_repair
+# check never passes, so every omarchy-update re-runs snapper.sh, which
+# ends in `systemctl enable --now ... limine-snapper-sync.service` failing
+# with "Unit not found" on every update, forever. Strip the limine-specific
+# bits from both so the rest of the snapper setup (config + cleanup timer)
+# still works without that unit.
+sed -i \
+  -e '/unit_enabled limine-snapper-sync.service/,+2d' \
+  /usr/share/omarchy/migrations/1781984677.sh
+sed -i \
+  -e 's/systemctl enable --now snapper-cleanup.timer limine-snapper-sync.service/systemctl enable --now snapper-cleanup.timer/' \
+  /usr/share/omarchy/install/config/snapper.sh
+
 mkinitcpio -p linux
