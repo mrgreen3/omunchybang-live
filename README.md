@@ -1,5 +1,8 @@
 # OmunchyBang Live
 
+> Unofficial, independent project — not affiliated with or endorsed by
+> Basecamp or David Heinemeier Hansson. See `CREDITS.md` for attribution.
+
 A live-bootable Hyprland/Omarchy desktop ISO: ArchBang's proven archiso boot
 scaffold (autologin live user, working live-session boot chain), running
 Omarchy's actual desktop stack pulled straight from their hosted repo
